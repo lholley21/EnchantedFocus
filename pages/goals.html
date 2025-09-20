@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enchanted Goals</title>
+    <link rel="stylesheet" href="../styles/goals.css" />
+  </head>
+  <body>
+    <div class="title-bar">
+      <span>🎯 Enchanted Goals</span>
+      <div class="window-buttons">
+        <button id="min-btn">–</button>
+        <button id="close-btn">x</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="goals-header">
+        <h1>📜 Your Mystical Goals</h1>
+        <p>Set your intentions and watch your magic grow!</p>
+      </div>
+
+      <div class="goal-creation">
+        <h2>✨ Cast a New Goal Spell</h2>
+        <div class="input-group">
+          <input type="text" id="goal-input" placeholder="Enter your mystical goal..." />
+          <select id="goal-category">
+            <option value="productivity">🧙‍♀️ Productivity Magic</option>
+            <option value="learning">📚 Learning Spells</option>
+            <option value="health">🌿 Wellness Potions</option>
+            <option value="creative">🎨 Creative Enchantments</option>
+            <option value="personal">⭐ Personal Growth</option>
+          </select>
+          <button id="add-goal-btn">🪄 Add Goal</button>
+        </div>
+      </div>
+
+      <div class="goals-container">
+        <div class="active-goals">
+          <h3>🔥 Active Quests</h3>
+          <div id="active-goals-list" class="goals-list">
+            <!-- Active goals will be added here -->
+          </div>
+        </div>
+
+        <div class="completed-goals">
+          <h3>🏆 Completed Quests</h3>
+          <div id="completed-goals-list" class="goals-list">
+            <!-- Completed goals will be added here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="goal-stats">
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-info">
+            <span class="stat-label">Total Goals</span>
+            <span class="stat-value" id="total-goals">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <span class="stat-label">Completed</span>
+            <span class="stat-value" id="completed-count">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-info">
+            <span class="stat-label">Success Rate</span>
+            <span class="stat-value" id="success-rate">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-buttons">
+        <button id="timer-btn" class="nav-btn">⏰ Back to Timer</button>
+        <button id="back-btn" class="nav-btn">🏠 Back to Start</button>
+      </div>
+    </div>
+
+    <script src="../scripts/goals.js"></script>
+  </body>
+</html>

@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mystery Quest', system-ui;
+  background-color: #2b1a2f; /* deep witchy purple */
+  color: #f8e7ff;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Magical sparkle background */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #76C7C0, transparent),
+    radial-gradient(2px 2px at 40px 70px, #a855f7, transparent),
+    radial-gradient(1px 1px at 90px 40px, #c084fc, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: sparkle 4s linear infinite;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.05; }
+}
+
+/* Title bar */
+.title-bar {
+  height: 40px;
+  background-color: #3d2a4f; /* dark wood / deep purple */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  -webkit-app-region: drag;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.window-buttons button {
+  -webkit-app-region: no-drag;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #f8e7ff;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.window-buttons button:hover {
+  background-color: #76C7C0; /* mint */
+  color: beige;
+  border-radius: 4px;
+}
+
+/* Main content */
+.main-content {
+  padding: 25px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.goals-header {
+  text-align: center;
+}
+
+.goals-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(248, 231, 255, 0.5);
+}
+
+.goals-header p {
+  font-size: 18px;
+  color: #76C7C0;
+  opacity: 0.8;
+}
+
+/* Goal creation */
+.goal-creation {
+  background: rgba(61, 42, 79, 0.6);
+  border: 2px solid #76C7C0;
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  align-self: stretch;
+}
+
+.goal-creation h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #f8e7ff;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#goal-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  background: rgba(43, 26, 47, 0.8);
+  border: 2px solid #a855f7;
+  border-radius: 10px;
+  color: #f8e7ff;
+  font-family: 'Mystery Quest', system-ui;
+  font-size: 16px;
+}
+
+#goal-input:focus {
+  outline: none;
+  border-color: #76C7C0;
+  box-shadow: 0 0 10px rgba(118, 199, 192, 0.3);
+}
+
+#goal-input::placeholder {
+  color: rgba(248, 231, 255, 0.5);
+}
+
+#goal-category {
+  padding: 12px 16px;
+  background: rgba(43, 26, 47, 0.8);
+  border: 2px solid #a855f7;
+  border-radius: 10px;
+  color: #f8e7ff;
+  font-family: 'Mystery Quest', system-ui;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#goal-category:focus {
+  outline: none;
+  border-color: #76C7C0;
+}
+
+#add-goal-btn {
+  font-family: 'Mystery Quest', system-ui;
+  background-color: #76C7C0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(118, 199, 192, 0.3);
+}
+
+#add-goal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(118, 199, 192, 0.4);
+}
+
+/* Goals container */
+.goals-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-self: stretch;
+}
+
+@media (max-width: 800px) {
+  .goals-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.active-goals, .completed-goals {
+  background: rgba(61, 42, 79, 0.4);
+  border: 2px solid #a855f7;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.active-goals h3, .completed-goals h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #f8e7ff;
+}
+
+.goals-list {
+  min-height: 200px;
+}
+
+.goal-item {
+  background: rgba(43, 26, 47, 0.8);
+  border: 2px solid rgba(118, 199, 192, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.goal-item:hover {
+  border-color: #76C7C0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(118, 199, 192, 0.2);
+}
+
+.goal-item.completed {
+  opacity: 0.8;
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.goal-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-text {
+  flex: 1;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.goal-category {
+  font-size: 12px;
+  color: #76C7C0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.goal-btn {
+  background: none;
+  border: 1px solid #76C7C0;
+  color: #76C7C0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  font-family: 'Mystery Quest', system-ui;
+}
+
+.goal-btn:hover {
+  background: #76C7C0;
+  color: white;
+}
+
+.goal-btn.complete {
+  border-color: #a855f7;
+  color: #a855f7;
+}
+
+.goal-btn.complete:hover {
+  background: #a855f7;
+  color: white;
+}
+
+.goal-btn.delete {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.goal-btn.delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Goal stats */
+.goal-stats {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-self: stretch;
+}
+
+.stat-card {
+  background: rgba(61, 42, 79, 0.6);
+  border: 2px solid #76C7C0;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.stat-icon {
+  font-size: 32px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #76C7C0;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f8e7ff;
+  text-shadow: 0 0 5px rgba(248, 231, 255, 0.5);
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-btn {
+  font-family: 'Mystery Quest', system-ui;
+  background-color: #76C7C0; /* mint */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(118, 199, 192, 0.3);
+  min-width: 140px;
+  text-align: center;
+  flex: 1;
+  max-width: 180px;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(118, 199, 192, 0.4);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  color: rgba(248, 231, 255, 0.6);
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+.empty-state .emoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Goal completion animation */
+@keyframes completeGoal {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); background: rgba(168, 85, 247, 0.3); }
+  100% { transform: scale(1); }
+}
+
+.goal-item.completing {
+  animation: completeGoal 0.6s ease-out;
+}

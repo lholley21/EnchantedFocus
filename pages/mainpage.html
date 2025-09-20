@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="../styles/mainpage.css" />
+  </head>
+  <body>
+    <div class="title-bar">
+      <span>🪄 Enchanted Focus</span>
+      <div class="window-buttons">
+        <button id="min-btn">–</button>
+        <button id="close-btn">x</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="timer-container">
+        <div class="timer-circle">
+          <div class="timer-progress"></div>
+          <div class="timer-display">
+            <div class="time-text" id="time-display">25:00</div>
+            <div class="session-type" id="session-type">Focus Time</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timer-controls">
+        <button id="start-btn" class="control-btn primary">🌟 Start</button>
+        <button id="pause-btn" class="control-btn" style="display: none;">⏸️ Pause</button>
+        <button id="reset-btn" class="control-btn">🔄 Reset</button>
+        <button id="settings-btn" class="control-btn">⚙️ Settings</button>
+      </div>
+      
+      <div id="settings-panel" class="settings-panel" style="display: none;">
+        <h3>⚙️ Timer Settings</h3>
+        
+        <div class="presets-section">
+          <h4>🎨 Quick Presets</h4>
+          <div class="presets-grid">
+            <button class="preset-btn" data-work="25" data-break="5">🎯 Classic<br><small>25/5</small></button>
+            <button class="preset-btn" data-work="50" data-break="10">💪 Extended<br><small>50/10</small></button>
+            <button class="preset-btn" data-work="15" data-break="5">⚡ Quick<br><small>15/5</small></button>
+            <button class="preset-btn" data-work="90" data-break="20">🧠 Deep Focus<br><small>90/20</small></button>
+          </div>
+        </div>
+        
+        <div class="settings-row">
+          <label for="work-time-input">🎯 Work Time (minutes):</label>
+          <input type="number" id="work-time-input" min="1" max="120" value="25" />
+        </div>
+        <div class="settings-row">
+          <label for="break-time-input">☕ Break Time (minutes):</label>
+          <input type="number" id="break-time-input" min="1" max="60" value="5" />
+        </div>
+        <div class="settings-buttons">
+          <button id="save-settings-btn" class="settings-btn save">✨ Save Settings</button>
+          <button id="cancel-settings-btn" class="settings-btn cancel">❌ Cancel</button>
+        </div>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-label">Sessions Completed</span>
+          <span class="stat-value" id="sessions-completed">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Potions Earned</span>
+          <span class="stat-value" id="potions-earned">0</span>
+        </div>
+      </div>
+      
+      <div class="potion-collection">
+        <h3>🧪 Potion Collection</h3>
+        <div class="potion-grid" id="potion-grid">
+          <!-- Potions will be dynamically added here -->
+        </div>
+      </div>
+      
+      <div class="navigation-buttons">
+        <button id="goals-btn" class="nav-btn">🎯 Goals</button>
+        <button id="back-btn" class="nav-btn">🏠 Back to Start</button>
+      </div>
+    </div>
+
+    <script src="../scripts/mainpage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "A retro-style Pomodoro Timer built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^31.0.0"
+  },
+  "keywords": ["pomodoro", "timer", "productivity"],
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Mystery Quest', system-ui;
+  background-color: #2b1a2f; /* deep witchy purple */
+  color: #f8e7ff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* Magical sparkle background */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #76C7C0, transparent),
+    radial-gradient(2px 2px at 40px 70px, #a855f7, transparent),
+    radial-gradient(1px 1px at 90px 40px, #c084fc, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: sparkle 4s linear infinite;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.05; }
+}
+
+/* Custom draggable top bar */
+.title-bar {
+  height: 40px;
+  background-color: #3d2a4f; /* dark wood / deep purple */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  -webkit-app-region: drag;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.window-buttons button {
+  -webkit-app-region: no-drag;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #f8e7ff;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+
+.window-buttons button {
+  -webkit-app-region: no-drag;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #f8e7ff;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.window-buttons button:hover { /* change this in the future */
+  background-color: #76C7C0; /* mint */
+  color:beige;
+  border-radius: 4px;
+}
+
+.title-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.title-screen h1 {
+  font-size: 50px;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(248, 231, 255, 0.5);
+}
+
+.title-screen button {
+  font-family: 'Mystery Quest', system-ui;
+  background-color: #76C7C0; /* mint */
+  border: none;
+  padding: 16px 32px;
+  font-size: 36px;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(118, 199, 192, 0.3);
+  min-width: 200px;
+}
+
+.title-screen button:hover {
+  transform: translateY(-3px) scale(1.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(118, 199, 192, 0.4);
+}
+
+.title-screen button:active {
+  transform: translateY(0) scale(1);
+}
+
+.potion-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.potion {
+  position: relative;
+  width: 128px;
+  height: auto;
+  z-index: 2;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px #a855f7) drop-shadow(0 0 16px #c084fc);
+}
+
+.potion:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
