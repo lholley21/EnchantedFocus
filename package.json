@@ -9,7 +9,11 @@
   "devDependencies": {
     "electron": "^31.0.0"
   },
-  "keywords": ["pomodoro", "timer", "productivity"],
-  "author": "Your Name",
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "productivity"
+  ],
+  "author": "Ladarria Holley",
   "license": "MIT"
 }
